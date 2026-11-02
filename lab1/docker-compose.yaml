@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   db:
-    image: postgres:16-alpine
+    image: postgres:17-alpine
     container_name: noSQL-lab-postgres
     environment:
       POSTGRES_USER: dofkee
@@ -11,7 +11,8 @@ services:
       - "5001:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./database-example/demo-20250901-3m.sql:/docker-entrypoint-initdb.d/init.sql
+#      - ./database-example/02-demo-20250901-3m.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database-example:/docker-entrypoint-initdb.d
     restart: unless-stopped
 
 
